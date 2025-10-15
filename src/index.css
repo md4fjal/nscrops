@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@theme {
+  --color-slime: #6d9a21;
+  --color-sgreen: #0d3c00;
+  --color-sgray: #777777;
+  --color-swhite: #ffffff;
+  --color-sblack: #222222;
+}
