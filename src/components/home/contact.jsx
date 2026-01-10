@@ -10,7 +10,7 @@ const Contact = () => {
           </div>
           <h3 className="text-xl font-semibold mb-1">Call us now</h3>
           <p className="text-2xl font-bold tracking-wide">
-            0000 - 123 - 456789
+            <a href="tel:7489655017">7489655017</a>
           </p>
         </div>
 
@@ -47,12 +47,6 @@ const Contact = () => {
               Get A Free Quotes
             </button>
           </form>
-
-          <hr className="border-[#0c3b32]/30 mb-3" />
-          <p className="text-[#0c3b32] text-sm">
-            Gordon services built specifically for your lawn care. Get a Free
-            Quote
-          </p>
         </div>
       </div>
     </section>

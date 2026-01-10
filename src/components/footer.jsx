@@ -8,24 +8,44 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { IMG } from "../assets/img";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
+  const getLinkHref = (href) => {
+    if (location.pathname !== "/") {
+      return `/${href}`;
+    }
+    return href;
+  };
+
+  const handleHashLinkClick = (href) => {
+    if (location.pathname === "/") {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <footer className="bg-[#0c3b32] text-white pt-16 pb-6">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-white/10 pb-10">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img
-              src={IMG.footerLogo}
-              alt="footerLogo"
-              className="h-12 w-auto sm:h-16 md:h-20"
-              loading="lazy"
-            />
+            <Link to="/">
+              <img
+                src={IMG.footerLogo}
+                alt="footerLogo"
+                className="h-12 w-auto sm:h-16 md:h-20"
+                loading="lazy"
+              />
+            </Link>
           </div>
           <p className="text-sm text-gray-300 leading-relaxed mb-6">
-            Et netus et malesuada fames ac turpis egestas integer. Id neque
-            aliquam vestibulum morbi. Volutpat est velit egestas dui id ornare.
-            Turpis massa.
+            Boost your crop yield with our premium fertilizers. Eco-friendly,
+            nutrient rich solutions designed for healthy plants.
           </p>
           <div className="flex items-center gap-4">
             <a
@@ -59,34 +79,50 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-5">Information</h3>
           <ul className="space-y-3 text-gray-300">
             <li>
-              <a href="#" className="hover:text-white">
-                Contact Us
+              <a
+                href={getLinkHref("#about-us")}
+                onClick={() => handleHashLinkClick("#about-us")}
+                className="hover:text-white"
+              >
+                About Us
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
-                Order Status
+              <a
+                href={getLinkHref("#journey")}
+                onClick={() => handleHashLinkClick("#journey")}
+                className="hover:text-white"
+              >
+                Journey
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
-                Delivery Choices
+              <a
+                href={getLinkHref("#products")}
+                onClick={() => handleHashLinkClick("#products")}
+                className="hover:text-white"
+              >
+                Products
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
-                Payment Options
+              <a
+                href={getLinkHref("#clients")}
+                onClick={() => handleHashLinkClick("#clients")}
+                className="hover:text-white"
+              >
+                Clients
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
-                Returns
-              </a>
+              <Link to="/terms" className="hover:text-white">
+                Terms and Conditions
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-white">
+              <Link to="/privacy" className="hover:text-white">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -97,16 +133,18 @@ const Footer = () => {
             <li className="flex items-start gap-3">
               <FaLocationDot className="mt-1 text-white" />
               <span>
-                No: 58 A, East Madison Street, Baltimore, MD, USA 4508
+                130 SR COMPOUND, LASUDIYA MORI, DEWAS NAKA INDORE 452010
               </span>
             </li>
             <li className="flex items-center gap-3">
               <IoCall className="text-white" />
-              <span>(000) 123 - 456789</span>
+              <a href="tel:7489655017">7489655017</a>
             </li>
             <li className="flex items-center gap-3">
               <MdEmail className="text-white" />
-              <span>info@example.com</span>
+              <a href="mailto:nscropscience2@gmail.com">
+                nscropscience2@gmail.com
+              </a>
             </li>
           </ul>
         </div>
@@ -133,7 +171,16 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-6 flex flex-col justify-between items-center text-gray-400 text-sm gap-3">
-        <p className="text-center">© 2025 Gordon-theme. Design Themes</p>
+        <p className="text-center">
+          © 2025 All rights reserved. Designed and developed by{" "}
+          <a
+            href="https://www.zectagon.com/"
+            className="hover:underline"
+            target="_blank"
+          >
+            Zectagon Technologies
+          </a>
+        </p>
       </div>
     </footer>
   );

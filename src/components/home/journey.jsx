@@ -1,4 +1,4 @@
-import { IMG } from "../assets/img";
+import { IMG } from "../../assets/img";
 
 const aboutData = [
   { count: "270", title: "Top Projects" },
@@ -35,13 +35,13 @@ const Journey = () => {
             Check About Us
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#22564b] leading-snug sm:leading-tight drop-shadow-md mt-2 sm:mt-3">
-            A Beautiful Garden With Flowers Grow
+            Healthy Crops, Bountiful Harvests
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-sgray leading-relaxed mt-4 md:mt-6">
-            Volutpat lacus laoreet non curabitur gravida arcu ac tortor
-            dignissim. Dolor sit amet consectetur adipiscing elit pellentesque.
-            Ac feugiat sed lectus velit sed ullamcorper.
+            we deliver top quality crop solutions. From ongoing to completed
+            projects, we ensure healthy growth, higher yields, and sustainable
+            farming success.
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-6 sm:gap-8 mt-8 md:mt-10">

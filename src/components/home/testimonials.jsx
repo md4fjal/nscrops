@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IMG } from "../assets/img";
+import { IMG } from "../../assets/img";
 
 const Testimonials = () => {
   const testimonials = [
@@ -8,14 +8,14 @@ const Testimonials = () => {
       name: "Stephen Park",
       country: "Canada",
       image: IMG.testUser1,
-      text: "Pulvinar mattis bibendum est ultricies integer quis auctor. Mauris ultrices eros in cursus turpis massa tincidunt dui a erat nam at lectus urna duis.",
+      text: "These fertilizers transformed my farm! My crops are healthier, greener, and yields have increased significantly. Highly recommend their solutions for any farmer.",
     },
     {
       id: 2,
       name: "Marisol Peter",
       country: "Australia",
       image: IMG.testUser2,
-      text: "Convallis convallis tellus. Pulvinar etiam non quam lacus suspendisse faucibus interdum. Ultrices mi tempus imperdiet nulla malesuada etiam.",
+      text: "Exceptional service and quality products. Our fields have never looked better, and harvests are consistently abundant. Truly a game-changer for sustainable farming.",
     },
   ];
 
@@ -36,11 +36,12 @@ const Testimonials = () => {
             Client Testimonials
           </h4>
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#22564b] mt-2 mb-4">
-            What Our Customers Say
+            What Our Farmers Say
           </h2>
           <p className="text-sgray mb-10 max-w-xl">
-            Fermentum posuere urna nec tincidunt praesent. Consectetur
-            adipiscing elit duis tristique sollicitudin nibh sit eget gravida.
+            Our clients trust us for healthier crops and higher yields. Read how
+            our premium fertilizers and expert solutions have transformed their
+            farms.
           </p>
 
           <div className="relative w-full overflow-hidden">

@@ -3,12 +3,14 @@ import { IoIosCall, IoMdMail } from "react-icons/io";
 import { WiTime9 } from "react-icons/wi";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IMG } from "../assets/img";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("#home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation();
 
   const navLinks = [
     { href: "#home", label: "Home" },
@@ -21,24 +23,40 @@ const Header = () => {
   const contactInfo = [
     {
       icon: <IoIosCall size={18} className="text-sgreen" />,
-      content: "(000) 123 - 456789",
-      href: "tel:+000123456789",
+      content: "7489655017",
+      href: "tel:7489655017",
     },
     {
       icon: <WiTime9 size={18} className="text-sgreen" />,
-      content: "Mon-Fri: 9:00–18:00",
+      content: "Mon-Fri: 9:00 18:00",
       href: "#",
     },
     {
       icon: <IoMdMail size={18} className="text-sgreen" />,
-      content: "info@example.com",
-      href: "mailto:info@example.com",
+      content: "nscropscience2@gmail.com",
+      href: "mailto:nscropscience2@gmail.com",
     },
   ];
 
   const handleLinkClick = (href) => {
     setActiveLink(href);
     setMenuOpen(false);
+
+    if (location.pathname !== "/") {
+      window.location.href = `/${href}`;
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const getLinkHref = (href) => {
+    if (location.pathname !== "/") {
+      return `/${href}`;
+    }
+    return href;
   };
 
   const controlHeader = () => {
@@ -56,6 +74,11 @@ const Header = () => {
       window.removeEventListener("scroll", controlHeader);
     };
   }, [lastScrollY]);
+
+  useEffect(() => {
+    const hash = window.location.hash || "#home";
+    setActiveLink(hash);
+  }, [location]);
 
   return (
     <header
@@ -92,19 +115,21 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex-shrink-0">
-              <img
-                src={IMG.headerLogo}
-                alt="Company Logo"
-                loading="lazy"
-                className="h-12 w-auto sm:h-16 md:h-20"
-              />
+              <Link to="/">
+                <img
+                  src={IMG.headerLogo}
+                  alt="Company Logo"
+                  loading="lazy"
+                  className="h-12 w-auto sm:h-16 md:h-20"
+                />
+              </Link>
             </div>
 
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={getLinkHref(link.href)}
                   onClick={() => handleLinkClick(link.href)}
                   className={`font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
                     activeLink === link.href
@@ -118,7 +143,8 @@ const Header = () => {
             </nav>
 
             <a
-              href="#contact-us"
+              href={getLinkHref("#contact-us")}
+              onClick={() => handleLinkClick("#contact-us")}
               className="hidden sm:inline-block bg-sgreen text-white font-semibold text-lg px-6 py-2.5 rounded-3xl hover:bg-slime hover:scale-105 transform transition-all duration-300 whitespace-nowrap shadow-md hover:shadow-lg"
             >
               Contact Us
@@ -142,7 +168,7 @@ const Header = () => {
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
-                    href={link.href}
+                    href={getLinkHref(link.href)}
                     onClick={() => handleLinkClick(link.href)}
                     className={`font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
                       activeLink === link.href
@@ -155,8 +181,11 @@ const Header = () => {
                 ))}
 
                 <a
-                  href="#contact-us"
-                  onClick={() => setMenuOpen(false)}
+                  href={getLinkHref("#contact-us")}
+                  onClick={() => {
+                    handleLinkClick("#contact-us");
+                    setMenuOpen(false);
+                  }}
                   className="bg-sgreen text-white font-semibold text-lg px-6 py-2.5 rounded-3xl hover:bg-slime hover:scale-105 transform transition-all duration-300 text-center mt-2 shadow-md hover:shadow-lg"
                 >
                   Contact Us

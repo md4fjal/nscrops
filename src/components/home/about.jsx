@@ -1,25 +1,25 @@
-import { IMG } from "../assets/img";
+import { IMG } from "../../assets/img";
 
 const aboutData = [
   {
     icon: IMG.aboutIcon1,
-    title: "Unique Environments",
-    text: "Lectus arcu bibendum at varius vel pharetra vel nam at lectus",
+    title: "High Yield Crop Solutions",
+    text: "Boost productivity with nutrient-rich fertilizers and expert care. Ensure strong growth and healthy crops throughout every season.",
   },
   {
     icon: IMG.aboutIcon2,
-    title: "New Planting Solutions",
-    text: "Urna duis convallis convallis tellus id enim eu turpis egestasae",
+    title: "Sustainable Farming Practices",
+    text: "Eco-friendly methods for long-term soil health. Optimize resources while maintaining high-quality harvests and preserving the environment.",
   },
   {
     icon: IMG.aboutIcon3,
-    title: "Green And Stylish Lawn",
-    text: "Eu tincidunt tortor aliquam nulla facilisi cras potenti nullam ac",
+    title: "Innovative Planting Techniques",
+    text: "Advanced techniques for efficient sowing, irrigation, and fertilization. Maximize yield and crop resilience across diverse farm conditions.",
   },
   {
     icon: IMG.aboutIcon4,
-    title: "Best Outdoor Space",
-    text: "Tortor vitae purus faucibus ornare suspendisse sed sit ametdic",
+    title: "Healthy and Vibrant Fields",
+    text: "Enhance crop vitality with balanced nutrients and precision farming. Achieve greener, more productive fields season after season.",
   },
 ];
 
@@ -41,13 +41,12 @@ const About = () => {
 
         <div className="text-center md:text-left">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#22564b] leading-snug sm:leading-tight drop-shadow-md">
-            Most Satisfactory Lawn Maintenance Types
+            Most Effective Crop Care Solutions
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-sgray leading-relaxed mt-4 md:mt-6">
-            Sem fringilla ut morbi tincidunt augue. Sapien faucibus et molestie
-            ac feugiat. Pretium viverra suspendisse potenti nullam. Dictum sit
-            amet justo donec enim diam ut pharetra.
+            Strategic solutions for crop monitoring and yield optimization. Turn
+            farming into a reliable, productive, and profitable endeavor.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 md:mt-10">
